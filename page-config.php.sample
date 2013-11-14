@@ -1,0 +1,7 @@
+<?php
+
+define('MEMC_HOST', '127.0.0.1'); //memcached服务器配置
+define('MEMC_PORT', 11211);
+define('API_KEY','9F905F7A72E143484D47E1B9E536C8AC');
+
+?>
