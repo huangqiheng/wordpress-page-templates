@@ -56,6 +56,21 @@ function expand_inputs($inputs)
 		$this_url = $item['url'];
 		$this_host = parse_url($this_url)['host'];
 
+		$item['ID'] = '';
+		$item['post_date'] = '';
+		$item['post_date_gmt'] = '';
+		$item['post_title'] = '';
+		$item['comment_count'] = 0;
+		$item['post_excerpt'] = '';
+		$item['author_display_name'] = '';
+		$item['author_url'] = '';
+		$item['categories'] = '';
+		$item['post_content'] = '';
+
+		if ($item['custom-category'] === 'ad') {
+			continue;
+		}
+
 		if ($this_host == $host_name) {
 			if ($post = get_post(url_to_postid($this_url))) {
 				$item['ID'] = $post->ID;
@@ -112,17 +127,6 @@ function expand_inputs($inputs)
 						$item['categories'] = $cats_str;
 
 						$item['post_content'] = $post->content;
-					} else {
-						$item['ID'] = '';
-						$item['post_date'] = '';
-						$item['post_date_gmt'] = '';
-						$item['post_title'] = '';
-						$item['comment_count'] = 0;
-						$item['post_excerpt'] = '';
-						$item['author_display_name'] = '';
-						$item['author_url'] = '';
-						$item['categories'] = '';
-						$item['post_content'] = '';
 					}
 				}
 			}
