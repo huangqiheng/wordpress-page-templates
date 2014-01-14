@@ -4,6 +4,8 @@ define('MEMC_HOST', '127.0.0.1'); //memcached服务器配置
 define('MEMC_PORT', 11211);
 define('API_KEY','XXXXXXXXXXXXXXXXXXXXX');
 
+define('CACHE_PATH', 'page-cache');
+
 $varnish_secrets = [
 	['host'=>'192.168.0.31', 'port'=>'6082', 'secret'=>'xxxxxxxxxxxxxxxxxx'],
 	['host'=>'192.168.0.32', 'port'=>'6082', 'secret'=>'xxxxxxxxxxxxxxxxxx'],
