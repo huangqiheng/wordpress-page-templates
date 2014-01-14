@@ -1,6 +1,6 @@
 *.swp
 *.swo
-config.php
+page-config.php
 .htaccess
 wp-config.php
 wp-content/uploads/
