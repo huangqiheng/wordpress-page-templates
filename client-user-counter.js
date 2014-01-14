@@ -11,11 +11,18 @@ if(self==top){(function(){
 			var counter_url = '/counter/'+counter_name;
 			update_counter(counter_url, item);
 
-			jqwp(item).closest('.user-counter-click').on('click', function(event){
+			jqwp('.user-counter-click').on('click', function(event){
 				var add_url = '/counter/'+counter_name+'?cmd=add';
 				add_counter(add_url, counter_obj);
 				return false;
 			});
+/*
+			jqwp(item).parent().closest('.user-counter-click').on('click', function(event){
+				var add_url = '/counter/'+counter_name+'?cmd=add';
+				add_counter(add_url, counter_obj);
+				return false;
+			});
+*/
 		});
 
 	};

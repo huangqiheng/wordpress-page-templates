@@ -127,7 +127,7 @@ function last_mtime($time = null)
 
 function get_keyid()
 {
-	$uri = preg_replace("\?.*$", '',  @$_SERVER['REQUEST_URI']);
+	$uri = preg_replace('/\?.*$/', '',  @$_SERVER['REQUEST_URI']);
 	$key =  crc32(CRC32_PREFIX.$uri);
 	return (string)$key;
 }
@@ -261,11 +261,15 @@ function GUID()
 
 function get_input_base()
 {
-	$this_page = get_page(get_the_id());
-	$content = $this_page->post_content;
+	if (function_exists('get_page')) {
+		$this_page = get_page(get_the_id());
+		$content = $this_page->post_content;
 
-	$items = explode("\r\n", $content);
-	return (int)$items[0];
+		$items = explode("\r\n", $content);
+		return (int)$items[0];
+	} else {
+		return 0;
+	}
 }
 
 function jsonp($data)
